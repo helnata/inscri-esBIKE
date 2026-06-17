@@ -1,286 +1,274 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inscrição - Corrida de Bike</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscrição - Corrida de Bike</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-      body {
-        background: #111;
-        padding: 20px;
-      }
+      body {
+        background: #111;
+        padding: 20px;
+      }
 
-      .container {
-        max-width: 500px;
-        margin: auto;
-        background: #1f1f1f;
-        border: 2px solid #ffd700;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
-      }
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background: #1f1f1f;
+        border: 2px solid #ffd700;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+      }
 
-      /* Banner */
-      .banner img {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-      }
+      /* Banner */
+      .banner img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
 
-      .content {
-        padding: 25px;
-      }
+      .content {
+        padding: 25px;
+      }
 
-      h1 {
-        color: #ffd700;
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 28px;
-      }
+      h1 {
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 28px;
+      }
 
-      label {
-        display: block;
-        color: #ffd700;
-        margin-bottom: 6px;
-        font-weight: bold;
-      }
+      label {
+        display: block;
+        color: #ffd700;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
 
-      .form-group {
-        margin-bottom: 18px;
-      }
+      .form-group {
+        margin-bottom: 18px;
+      }
 
-      input,
-      select {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #ffd700;
-        background: #2d2d2d;
-        color: #fff;
-        font-size: 15px;
-      }
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ffd700;
+        background: #2d2d2d;
+        color: #fff;
+        font-size: 15px;
+      }
 
-      button {
-        width: 100%;
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        background: #ffd700;
-        color: #000;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-      }
+      button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background: #ffd700;
+        color: #000;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+      }
 
-      /* Modal */
-      .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
 
-      .modal-box {
-        background: #1f1f1f;
-        border: 2px solid #ffd700;
-        border-radius: 12px;
-        padding: 20px;
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-      }
+      .modal-box {
+        background: #1f1f1f;
+        border: 2px solid #ffd700;
+        border-radius: 12px;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
 
-      .modal-box h2 {
-        color: #ffd700;
-        margin-bottom: 15px;
-      }
+      .modal-box h2 {
+        color: #ffd700;
+        margin-bottom: 15px;
+      }
 
-      .qrcode {
-        width: 200px;
-        max-width: 80%;
-        height: auto;
-        margin-bottom: 15px;
-      }
+      .qrcode {
+        width: 200px;
+        max-width: 80%;
+        height: auto;
+        margin-bottom: 15px;
+      }
 
-      .pix-input {
-        width: 100%;
-        margin-bottom: 10px;
-      }
+      .pix-input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-      .copy {
-        margin-bottom: 10px;
-      }
+      .copy {
+        margin-bottom: 10px;
+      }
 
-      .whatsapp {
-        display: block;
-        width: 100%;
-        padding: 12px;
-        background: #25d366;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-      }
+      .whatsapp {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #25d366;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+      }
 
-      .fechar {
-        margin-top: 10px;
-        background: #555;
-        color: #fff;
-      }
+      .fechar {
+        margin-top: 10px;
+        background: #555;
+        color: #fff;
+      }
 
-      @media (max-width: 600px) {
-        .content {
-          padding: 18px;
-        }
+      @media (max-width: 600px) {
+        .content {
+          padding: 18px;
+        }
 
-        h1 {
-          font-size: 22px;
-        }
+        h1 {
+          font-size: 22px;
+        }
 
-        .qrcode {
-          width: 160px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="banner">
-        <img
-          src="https://i.ibb.co/CK9r22BW/capa.png"
-          alt="Banner"
-        />
-      </div>
+        .qrcode {
+          width: 160px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <img
+          src="https://i.ibb.co/CK9r22BW/capa.png"
+          alt="Banner"
+        />
+      </div>
 
-      <div class="content">
-        <h1>Formulário de Inscrição</h1>
+      <div class="content">
+        <h1>Formulário de Inscrição</h1>
 
-        <form id="formulario">
-          <div class="form-group">
-            <label>Modalidade</label>
-            <select id="modalidade" name="modalidade" required>
-              <option value="">Selecione</option>
-              <option>CORRIDA LIVRE DE BIKE</option>
-              <option>CORRIDA DE PEDESTRE</option>
-              <option>CORRIDA INICIANTE DE BIKE (19 À 39 ANOS)</option>
-              <option>CORRIDA JUVENIL DE BIKE (15 À 18 ANOS)</option>
-            </select>
-          </div>
+        <form id="formulario">
+          <div class="form-group">
+            <label>Modalidade</label>
+            <select id="modalidade" name="modalidade" required>
+              <option value="">Selecione</option>
+              <option>CORRIDA LIVRE DE BIKE</option>
+              <option>CORRIDA DE PEDESTRE</option>
+              <option>CORRIDA INICIANTE DE BIKE (19 À 39 ANOS)</option>
+              <option>CORRIDA JUVENIL DE BIKE (15 À 18 ANOS)</option>
+            </select>
+          </div>
 
-          <div class="form-group">
-            <label>Nome</label>
-            <input id="nome" name="nome" type="text" required />
-          </div>
+          <div class="form-group">
+            <label>Nome</label>
+            <input id="nome" name="nome" type="text" required />
+          </div>
 
-          <div class="form-group">
-            <label>Telefone</label>
-            <input
-              id="telefone"
-              name="telefone"
-              type="tel"
-              placeholder="(84) 99999-9999"
-              required
-            />
-          </div>
+          <div class="form-group">
+            <label>Telefone</label>
+            <input
+              id="telefone"
+              name="telefone"
+              type="tel"
+              placeholder="(84) 99999-9999"
+              required
+            />
+          </div>
 
-          <button type="submit">CONTINUAR</button>
-        </form>
-      </div>
-    </div>
+          <button type="submit">CONTINUAR</button>
+        </form>
+      </div>
+    </div>
 
-    <div class="modal" id="modalPix">
-      <div class="modal-box">
-        <h2>Pagamento da Inscrição</h2>
+    <div class="modal" id="modalPix">
+      <div class="modal-box">
+        <h2>Pagamento da Inscrição</h2>
 
-        <img
-          class="qrcode"
-          src="https://i.ibb.co/mrnwPqtj/qrcode-pix-2.png"
-          alt="QR Code PIX"
-        />
+        <img
+          class="qrcode"
+          src="https://i.ibb.co/mrnwPqtj/qrcode-pix-2.png"
+          alt="QR Code PIX"
+        />
 
-        <input
-          id="pix"
-          class="pix-input"
-          type="text"
-          readonly
-          value="00020126580014BR.GOV.BCB.PIX0136b6d1df50-d537-4412-8b56-a30511399d6e520400005303986540570.005802BR5901.6001.62070503***63043779 "
-        />
+        <input
+          id="pix"
+          class="pix-input"
+          type="text"
+          readonly
+          value="00020126580014BR.GOV.BCB.PIX0136b6d1df50-d537-4412-8b56-a30511399d6e520400005303986540570.005802BR5901.6001.62070503***63043779 "
+        />
 
-        <button class="copy" type="button" onclick="copiarPix()">
-          Copiar PIX
-        </button>
+        <button class="copy" type="button" onclick="copiarPix()">
+          Copiar PIX
+        </button>
 
-        <a
-          id="whatsapp"
-          class="whatsapp"
-          href="https://wa.me/5584981420630"
-          target="_blank"
-        >
-          Confirmar Inscrição Agora!
-        </a>
+        <a
+          id="whatsapp"
+          class="whatsapp"
+          href="https://wa.me/5584981420630"
+          target="_blank"
+        >
+          Confirmar Inscrição Agora!
+        </a>
 
-        <button class="fechar" type="button" onclick="fecharModal()">
-          Fechar
-        </button>
-      </div>
-    </div>
+        <button class="fechar" type="button" onclick="fecharModal()">
+          Fechar
+        </button>
+      </div>
+    </div>
 
-    <script>
-      document
-        .getElementById("formulario")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+    <script>
+      document
+        .getElementById("formulario")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-          const modalidade = document.getElementById("modalidade").value;
-          const nome = document.getElementById("nome").value.trim();
-          const telefone = document.getElementById("telefone").addEventListener("input", function (e) {
-  let valor = e.target.value.replace(/\D/g, "");
+          const modalidade = document.getElementById("modalidade").value;
+          const nome = document.getElementById("nome").value.trim();
+          const telefone = document.getElementById("telefone").value.trim();
+          const mensagem = [
+            "Olá! Quero confirmar minha inscrição.",
+            "",
+            "Modalidade: " + modalidade,
+            "Nome: " + nome,
+            "Telefone: " + telefone,
+          ].join("\n");
 
-  if (valor.length > 11) {
-    valor = valor.slice(0, 11);
-  }
+          document.getElementById("whatsapp").href =
+            "https://wa.me/5584981420630?text=" + encodeURIComponent(mensagem);
 
-  valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
-  valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+          document.getElementById("modalPix").style.display = "flex";
+        });
 
-  e.target.value = valor;
-});
-          const mensagem = [
-            "Olá! Quero confirmar minha inscrição.",
-            "",
-            "Modalidade: " + modalidade,
-            "Nome: " + nome,
-            "Telefone: " + telefone,
-          ].join("\n");
+      function copiarPix() {
+        const campo = document.getElementById("pix");
+        navigator.clipboard.writeText(campo.value);
+        alert("PIX copiado!");
+      }
 
-          document.getElementById("whatsapp").href =
-            "https://wa.me/5584981420630?text=" + encodeURIComponent(mensagem);
-
-          document.getElementById("modalPix").style.display = "flex";
-          
-        });
-
-      function copiarPix() {
-        const campo = document.getElementById("pix");
-        navigator.clipboard.writeText(campo.value);
-        alert("PIX copiado!");
-      }
-
-      function fecharModal() {
-        document.getElementById("modalPix").style.display = "none";
-      }
-    </script>
-  </body>
+      function fecharModal() {
+        document.getElementById("modalPix").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
