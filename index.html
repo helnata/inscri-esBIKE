@@ -239,49 +239,63 @@
     </div>
 
     <script>
-      document
-        .getElementById("formulario")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+     <script>
+  // 1. MÁSCARA DE TELEFONE (Executa em tempo real enquanto o usuário digita)
+  document.getElementById("telefone").addEventListener("input", function (e) {
+    let valor = e.target.value.replace(/\D/g, ""); // Remove tudo o que não for número
 
-          const modalidade = document.getElementById("modalidade").value;
-          const nome = document.getElementById("nome").value.trim();
-          const telefone = document.getElementById("telefone").addEventListener("input", function (e) {
-  let valor = e.target.value.replace(/\D/g, "");
+    if (valor.length > 11) {
+      valor = valor.slice(0, 11); // Limita a 11 dígitos
+    }
 
-  if (valor.length > 11) {
-    valor = valor.slice(0, 11);
+    // Aplica a formatação (XX) XXXXX-XXXX
+    if (valor.length > 2) {
+      valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
+    }
+    if (valor.length > 7) {
+      valor = valor.replace(/(\d{5})(\d{4})$/, "$1-$2");
+    }
+
+    e.target.value = valor;
+  });
+
+  // 2. ENVIO DO FORMULÁRIO
+  document.getElementById("formulario").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Captura os valores corretos dos campos de forma limpa
+    const modalidade = document.getElementById("modalidade").value;
+    const nome = document.getElementById("nome").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+
+    // Monta a mensagem para o WhatsApp
+    const mensagem = [
+      "Olá! Quero confirmar minha inscrição.",
+      "",
+      "Modalidade: " + modalidade,
+      "Nome: " + nome,
+      "Telefone: " + telefone,
+    ].join("\n");
+
+    // Atualiza o link do WhatsApp com o texto formatado
+    document.getElementById("whatsapp").href =
+      "https://wa.me/5584981420630?text=" + encodeURIComponent(mensagem);
+
+    // Abre o Modal do PIX
+    document.getElementById("modalPix").style.display = "flex";
+  });
+
+  // 3. FUNÇÕES DO MODAL
+  function copiarPix() {
+    const campo = document.getElementById("pix");
+    navigator.clipboard.writeText(campo.value);
+    alert("PIX copiado!");
   }
 
-  valor = valor.replace(/^(\d{2})(\d)/, "($1) $2");
-  valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
-
-  e.target.value = valor;
-});
-          const mensagem = [
-            "Olá! Quero confirmar minha inscrição.",
-            "",
-            "Modalidade: " + modalidade,
-            "Nome: " + nome,
-            "Telefone: " + telefone,
-          ].join("\n");
-
-          document.getElementById("whatsapp").href =
-            "https://wa.me/5584981420630?text=" + encodeURIComponent(mensagem);
-
-          document.getElementById("modalPix").style.display = "flex";
-          
-        });
-
-      function copiarPix() {
-        const campo = document.getElementById("pix");
-        navigator.clipboard.writeText(campo.value);
-        alert("PIX copiado!");
-      }
-
-      function fecharModal() {
-        document.getElementById("modalPix").style.display = "none";
-      }
+  function fecharModal() {
+    document.getElementById("modalPix").style.display = "none";
+  }
+</script>
     </script>
   </body>
 </html>
